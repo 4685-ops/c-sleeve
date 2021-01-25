@@ -1,0 +1,17 @@
+<view>
+    <image src="{{themeA.entrance_img}}" class="theme-image"></image>
+    <swiper
+            class="image-item"
+            indicator-active-color="#157658"
+            indicator-dots
+            autoplay
+    >
+        <block wx:for="{{bannerB.items}}" wx:key="index">
+            <swiper-item>
+                <image class="image-item" src="{{item.img}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <s-grid categoryData="{{categoryC}}"></s-grid>
+</view>

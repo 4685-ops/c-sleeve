@@ -1,0 +1,8 @@
+.theme-image {
+    width: 100%;
+    height: 260rpx;
+}
+.image-item{
+    width: 100%;
+    height: 360rpx;
+}
