@@ -1,6 +1,7 @@
 import { Theme } from '../../model/theme'
 import { Banner } from '../../model/banner'
 import { Category } from '../../model/category'
+import { Activity } from '../../model/activity'
 
 Page({
 
@@ -10,7 +11,8 @@ Page({
     data: {
         themeA: null,
         bannerB: null,
-        categoryC: []
+        categoryC: [],
+        activityD: null
     },
 
     /**
@@ -23,11 +25,13 @@ Page({
         const themeA = await Theme.getHomeLocationA()
         const bannerB = await Banner.getHomeLocationB()
         const categoryC = await Category.getHomeLocationC()
+        const activityD = await Activity.getHomeLocationD()
 
         this.setData({
             themeA: themeA[0],
             bannerB,
-            categoryC
+            categoryC,
+            activityD
         })
     },
     /**

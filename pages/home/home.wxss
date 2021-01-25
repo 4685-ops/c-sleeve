@@ -1,8 +1,17 @@
 .theme-image {
     width: 100%;
     height: 260rpx;
+    display: flex;
 }
 .image-item{
     width: 100%;
     height: 360rpx;
+    display: flex;
+}
+
+.activity-img{
+    width: 100%;
+    height: 310rpx;
+    display: flex;
+    margin-top: 20rpx;
 }
