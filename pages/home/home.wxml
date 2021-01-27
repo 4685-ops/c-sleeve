@@ -16,4 +16,5 @@
     <s-grid categoryData="{{categoryC}}"></s-grid>
 
     <image src="{{activityD.entrance_img}}" class="activity-img"></image>
+    <s-spu-scroll theme="{{themeE}}" spuList="{{themeESpu.spu_list}}" ></s-spu-scroll>
 </view>

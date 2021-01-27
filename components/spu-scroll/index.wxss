@@ -1,0 +1,42 @@
+
+.container {
+    padding: 42rpx 0 28rpx 28rpx;
+}
+
+.spu-scroll-image{
+    width: 694rpx;
+    height: 100rpx;
+}
+.price-value{
+    color: #157658 !important;
+    font-size: 28rpx !important;
+}
+
+.price-unit{
+    color: #157658 !important;
+    font-size: 28rpx !important;
+}
+.text {
+    font-size: 30rpx;
+    color: #666666;
+    margin-top:10rpx;
+}
+.spu-list-image{
+    width: 160rpx;
+    height: 160rpx;
+}
+.inner-container{
+    display: flex;
+    flex-direction: row;
+}
+.scroll-container{
+    display: flex;
+    flex-direction: row;
+    margin-top:28rpx;
+}
+.spu-list-container{
+    display: flex;
+    flex-direction: column;
+    margin-right:60rpx;
+    align-items: center;
+}

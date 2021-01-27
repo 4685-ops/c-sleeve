@@ -1,16 +1,42 @@
 import { Http } from '../utils/http'
 
 class Theme {
+  static locationA = 't-1'
+  static locationE = 't-2'
+  static locationF = 't-3'
+  static locationH = 't-4'
 
-  static async getHomeLocationA () {
-    const data = await Http.request({
-      url: 'theme.json',
+  themes = []
+
+  async getThemeNames () {
+    this.themes = await Http.request({
+      url: 'names.json',
       data: {
-        names: 't-1'
+        names: `${Theme.locationA},${Theme.locationE},${Theme.locationF},${Theme.locationH}`
       }
     })
-    return data
   }
+
+  async getHomeLocationA () {
+    return this.themes.find(t => t.name === Theme.locationA)
+  }
+
+  async getHomeLocationE () {
+    return this.themes.find(t => t.name === Theme.locationE)
+  }
+
+  async getHomeThemeESpu (themeE) {
+    if (themeE.online) {
+      return this.getHomeThemeESpuList()
+    }
+  }
+
+  getHomeThemeESpuList () {
+    return Http.request({
+      url: `${Theme.locationE}/with_spu.json`
+    })
+  }
+
 }
 
 export {

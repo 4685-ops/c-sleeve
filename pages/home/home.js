@@ -12,7 +12,9 @@ Page({
         themeA: null,
         bannerB: null,
         categoryC: [],
-        activityD: null
+        activityD: null,
+        themeE: null,
+        themeESpu: null
     },
 
     /**
@@ -22,16 +24,30 @@ Page({
         this.initAllData()
     },
     async initAllData () {
-        const themeA = await Theme.getHomeLocationA()
+        const theme = new Theme()
+        await theme.getThemeNames();
+        const themeA = await theme.getHomeLocationA()
         const bannerB = await Banner.getHomeLocationB()
         const categoryC = await Category.getHomeLocationC()
         const activityD = await Activity.getHomeLocationD()
+        const themeE = await theme.getHomeLocationE()
 
+        console.log(themeE)
+        let themeESpu = null
+        if (themeE.online) {
+            themeESpu = await theme.getHomeThemeESpu(themeE)
+            if (themeESpu.spu_list.length>8) {
+                themeESpu.spu_list = themeESpu.spu_list.slice(0,8)
+            }
+        }
+        console.log(themeESpu)
         this.setData({
-            themeA: themeA[0],
+            themeA,
             bannerB,
             categoryC,
-            activityD
+            activityD,
+            themeE,
+            themeESpu,
         })
     },
     /**
