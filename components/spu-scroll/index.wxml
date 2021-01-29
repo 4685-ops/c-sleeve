@@ -1,3 +1,4 @@
+<wxs src="/miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs>
 <view class="container">
     <image src="{{theme.internal_top_img}}" class="spu-scroll-image"></image>
 
@@ -6,9 +7,9 @@
             <block wx:for="{{spuList}}">
                 <view class="spu-list-container">
                     <image src="{{item.img}}" class="spu-list-image"></image>
+                    <text class="text">{{item.title.length > 4?s.slice(item.title,0,4)+'...':item.title}}</text>
                     <l-price autofix l-value-class="price-value" l-unit-class="price-unit"
                              value="{{item.price}}"></l-price>
-                    <text class="text">{{item.title}}</text>
                 </view>
             </block>
         </view>

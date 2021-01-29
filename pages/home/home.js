@@ -14,7 +14,10 @@ Page({
         categoryC: [],
         activityD: null,
         themeE: null,
-        themeESpu: null
+        themeESpu: null,
+        themeF: null,
+        themeG: [],
+        themeH: null
     },
 
     /**
@@ -31,8 +34,9 @@ Page({
         const categoryC = await Category.getHomeLocationC()
         const activityD = await Activity.getHomeLocationD()
         const themeE = await theme.getHomeLocationE()
-
-        console.log(themeE)
+        const themeF = await theme.getHomeLocationF()
+        const themeG = await Banner.getHomeLocationG()
+        const themeH = await theme.getHomeLocationH()
         let themeESpu = null
         if (themeE.online) {
             themeESpu = await theme.getHomeThemeESpu(themeE)
@@ -40,7 +44,6 @@ Page({
                 themeESpu.spu_list = themeESpu.spu_list.slice(0,8)
             }
         }
-        console.log(themeESpu)
         this.setData({
             themeA,
             bannerB,
@@ -48,6 +51,9 @@ Page({
             activityD,
             themeE,
             themeESpu,
+            themeF,
+            themeG,
+            themeH
         })
     },
     /**

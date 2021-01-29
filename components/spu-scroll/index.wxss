@@ -1,6 +1,7 @@
 
 .container {
     padding: 42rpx 0 28rpx 28rpx;
+    background-color: #fff !important;
 }
 
 .spu-scroll-image{
@@ -37,6 +38,6 @@
 .spu-list-container{
     display: flex;
     flex-direction: column;
-    margin-right:60rpx;
+    margin-right:30rpx;
     align-items: center;
 }

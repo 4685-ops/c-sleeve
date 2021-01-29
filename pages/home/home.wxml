@@ -17,4 +17,11 @@
 
     <image src="{{activityD.entrance_img}}" class="activity-img"></image>
     <s-spu-scroll theme="{{themeE}}" spuList="{{themeESpu.spu_list}}" ></s-spu-scroll>
+
+    <image src="{{themeF.entrance_img}}" class="theme-image-for"></image>
+
+    <s-hot-list banner="{{themeG}}"></s-hot-list>
+
+    <image src="{{themeH.entrance_img}}" class="theme-image-for"></image>
+
 </view>
