@@ -22,6 +22,6 @@
 
     <s-hot-list banner="{{themeG}}"></s-hot-list>
 
-    <image src="{{themeH.entrance_img}}" class="theme-image-for"></image>
+    <image src="{{theme.entrance_img}}" class="theme-image-for"></image>
 
 </view>
