@@ -21,12 +21,26 @@ class Page {
     this.url = req.url
   }
 
+
+  async getMoreData() {
+    if(!this.moreData){
+      return
+    }
+    if(!this.getLock()){
+      return
+    }
+    const data =await this._actualGetData()
+    this.unLock()
+    return data
+  }
+
   /**
    * 获取数据
    * @private
    */
   async _actualGetData () {
     const req = this._getCurrentReq()
+
     let paging = await Http.request(req)
 
     if (!paging) {
@@ -54,7 +68,6 @@ class Page {
 
     // 把每次请求回来的数据 保存到一个数组中
     this._accumulator(paging.items)
-
     return {
       empty: false,
       items: paging.items,

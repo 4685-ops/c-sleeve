@@ -1,27 +1,32 @@
-<view>
-    <image src="{{themeA.entrance_img}}" class="theme-image"></image>
-    <swiper
-            class="image-item"
-            indicator-active-color="#157658"
-            indicator-dots
-            autoplay
-    >
-        <block wx:for="{{bannerB.items}}" wx:key="index">
-            <swiper-item>
-                <image class="image-item" src="{{item.img}}"></image>
-            </swiper-item>
-        </block>
-    </swiper>
+<l-loadmore  show type="{{loadingType}}"  end-text="- LHY作品 -">
+    <view slot="content" class="container">
+        <image src="{{themeA.entrance_img}}" class="theme-image"></image>
+        <swiper
+                class="image-item"
+                indicator-active-color="#157658"
+                indicator-dots
+                autoplay
+        >
+            <block wx:for="{{bannerB.items}}" wx:key="index">
+                <swiper-item>
+                    <image class="image-item" src="{{item.img}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
 
-    <s-grid categoryData="{{categoryC}}"></s-grid>
+        <s-grid categoryData="{{categoryC}}"></s-grid>
 
-    <image src="{{activityD.entrance_img}}" class="activity-img"></image>
-    <s-spu-scroll theme="{{themeE}}" spuList="{{themeESpu.spu_list}}" ></s-spu-scroll>
+        <image src="{{activityD.entrance_img}}" class="activity-img"></image>
+        <s-spu-scroll theme="{{themeE}}" spuList="{{themeESpu.spu_list}}" ></s-spu-scroll>
 
-    <image src="{{themeF.entrance_img}}" class="theme-image-for"></image>
+        <image src="{{themeF.entrance_img}}" class="theme-image-for"></image>
 
-    <s-hot-list banner="{{themeG}}"></s-hot-list>
+        <s-hot-list banner="{{themeG}}"></s-hot-list>
 
-    <image src="{{theme.entrance_img}}" class="theme-image-for"></image>
-
-</view>
+        <image src="{{themeH.entrance_img}}" class="theme-image-for"></image>
+        <view class="spu-bottom">
+            <image class="title-spu-bottom" src="/imgs/home/title@interest.png"></image>
+            <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
+        </view>
+    </view>
+</l-loadmore>

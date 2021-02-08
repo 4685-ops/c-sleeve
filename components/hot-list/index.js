@@ -8,6 +8,9 @@ Component({
   },
   observers: {
     'banner': function (banner) {
+      if (!banner.items) {
+        return null
+      }
       const left = banner.items.find(t => t.name == 'left')
       const rightTop = banner.items.find(t => t.name == 'right-top')
       const rightBottom = banner.items.find(t => t.name == 'right-bottom')

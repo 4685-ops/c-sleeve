@@ -2,6 +2,7 @@ import { Theme } from '../../model/theme'
 import { Banner } from '../../model/banner'
 import { Category } from '../../model/category'
 import { Activity } from '../../model/activity'
+import { SpuPaging } from '../../model/spu-paging'
 
 Page({
 
@@ -17,7 +18,9 @@ Page({
         themeESpu: null,
         themeF: null,
         themeG: [],
-        themeH: null
+        themeH: null,
+        spuPaging:null,
+        loadingType: 'loading'
     },
 
     /**
@@ -25,6 +28,7 @@ Page({
      */
     onLoad: function (options) {
         this.initAllData()
+        this.initBottomSpuList()
     },
     async initAllData () {
         const theme = new Theme()
@@ -44,6 +48,7 @@ Page({
                 themeESpu.spu_list = themeESpu.spu_list.slice(0,8)
             }
         }
+
         this.setData({
             themeA,
             bannerB,
@@ -55,6 +60,18 @@ Page({
             themeG,
             themeH
         })
+    },
+    async initBottomSpuList() {
+        const paging = SpuPaging.getLatestPaging();
+        this.data.spuPaging = paging
+        const data = await paging.getMoreData()
+        if (!data) {
+            return
+        }
+        console.log(data.items,'data.items')
+        // 调用 lin-ui 的方法把数据传递给瀑布流组件
+        wx.lin.renderWaterFlow(data.items)
+
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -73,7 +90,20 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: async function () {
+        const data = await this.data.spuPaging.getMoreData()
+        if (!data) {
+            return
+        }
+
+        // 调用 lin-ui 的方法把数据传递给瀑布流组件
+        wx.lin.renderWaterFlow(data.items)
+
+       if (!this.data.spuPaging.moreData) {
+           this.setData({
+               loadingType: 'end'
+           })
+       }
 
     },
 

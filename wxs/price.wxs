@@ -1,0 +1,53 @@
+/**
+ * @作者 7七月
+ * @创建时间 2019-10-17 15:54
+ */
+
+/**
+ * 获取主价格
+ * @param price 原价
+ * @param discountPrice 折扣价
+ * @returns {{price: *, display: boolean}}
+ */
+function mainPrice(price, discountPrice) {
+    // 如果折扣价不存在
+    if(!discountPrice){
+        return {
+            price:price, // 返回原价
+            display:true // 主价格是否显示
+        }
+    }
+    else{
+        return {
+            display:true,  // 主价格是否显示
+            price:discountPrice, // 返回折扣价
+        }
+    }
+}
+
+/**
+ * 返回 划线价格
+ * @param price
+ * @param discountPrice
+ * @returns {{price: *, display: boolean}|{price: null, display: boolean}}
+ */
+function slashedPrice(price, discountPrice) {
+
+    // 如果折扣价存在
+    if(discountPrice){
+        return {
+            display:true,
+            price:price  // 那么原价就是划线
+        }
+    }else{
+        return {
+            display:false,
+            price:null // 如果不存在 那个这个划线的状态就不显示
+        }
+    }
+}
+
+module.exports = {
+    mainPrice:mainPrice,
+    slashedPrice:slashedPrice
+}
